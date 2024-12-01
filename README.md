@@ -54,34 +54,6 @@ The test suite validates:
 
 ---
 
-## Development and Publishing
-
-### Building the Package
-To build the package for distribution:
-```bash
-python -m build
-```
-
-This will create source and wheel distributions in the `dist/` directory.
-
-### Uploading to PyPI
-Install `twine` for secure uploads:
-```bash
-pip install twine
-```
-
-Upload your package:
-```bash
-twine upload dist/*
-```
-
----
-
-## License
-
-This library is licensed under the MIT License. See the `LICENSE` file for details.
-
----
 
 ## Contact and Support
 
