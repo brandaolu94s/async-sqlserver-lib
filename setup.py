@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="async-sqlserver-lib",  
-    version="1.0.0",  
+    version="1.0.3",  
     description="A Python library for managing asynchronous SQL Server connections.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown", 
@@ -28,7 +28,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.12",  # Enforce Python 3.12+
+    python_requires=">=3.8",  # Enforce Python 3.8+
     license="MIT",  # License type
     keywords="sql-server asyncio sqlalchemy aioodbc",
 )

@@ -33,6 +33,64 @@ pipenv install async-sqlserver-lib
 
 ---
 
+
+# Using the Library
+
+The library allows you to manage asynchronous SQL Server connections with ease. Follow the steps below to start using it:
+
+## Set Up Your Environment Variables
+
+To configure your SQL Server connection, create a `.env` file in your project root with the following details:
+
+```env
+DB_DRIVER=ODBC Driver 17 for SQL Server
+DB_USER=your_username
+DB_PASS=your_password
+DB_HOST=localhost
+DB_PORT=1433
+DB_NAME=your_database
+```
+
+---
+
+##  Use the Library in Your Code
+
+Here’s an example of fetching data from a SQL Server database using the library:
+
+```python
+import asyncio
+from async_sqlserver_lib.decorators import create_db_connection, close_db_connection
+from sqlalchemy import text
+
+@create_db_connection(
+    driver="ODBC Driver 17 for SQL Server",
+    user="your_username",
+    password="your_password",
+    host="localhost",
+    port=1433,
+    database="your_database",
+)
+@close_db_connection
+async def fetch_data(db_manager=None):
+    """
+    Fetch data from the SQL Server database.
+    """
+    async with db_manager.get_session() as session:
+        query = text("SELECT TOP 5 * FROM your_table")  # Replace `your_table` with your table name
+        result = await session.execute(query)
+        return result.fetchall()
+
+# Run your asynchronous function
+async def main():
+    data = await fetch_data()
+    print("Fetched data:", data)
+
+asyncio.run(main())
+```
+
+---
+
+
 ## Running Tests
 
 ### Prerequisites
